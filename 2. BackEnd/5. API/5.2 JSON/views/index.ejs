@@ -18,7 +18,25 @@
 
     <!-- If no recipe yet, show: -->
     <% if (locals.menu) { %>
-      <hi><%= menu.name %> </hi>
+      <h2 id="recipeTitle" >
+        <%= menu.name %> 
+      </h2>
+
+      <h3>Ingredients:</h3>
+    <ul id="ingredientsList">
+      
+      <li>
+        <%= menu.ingredients.protein.name %>, <%= menu.ingredients.protein.preparation %>
+      </li>
+
+    </li>
+    <% menu.ingredients.toppings.forEach(topping=> { %>
+      <li>
+        <%= topping.quantity %> of <%= topping.name %>
+      </li>
+      <% }) %>
+       
+    </ul>
 
 
 
@@ -29,12 +47,7 @@
     
     <!-- Else, show the recipe name e.g. <h2>Recipe name</h2>-->
 
-    <h3>Ingredients:</h3>
-    <ul id="ingredientsList">
-      <li>Protein name, protein preparation</li>
-      <li>Salsa name</li>
-      <li>Every other topping</li>
-    </ul>
+    
 
 
 
